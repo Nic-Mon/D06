@@ -22,19 +22,19 @@
 # Body
 
 
-def avoids():
-    """ return True if word NOT forbidden"""
-    ...
+def avoids(word, forbidden_letters):
+    for letter in forbidden_letters:
+        if letter in word:
+            return True
+    return False
 
 
 def forbidden_prompt():
-    """ print count of words NOT forbidden by input"""
-    ...
-
+    forbidden_string = input("Enter a string of forbidden letters: ")
+    return forbidden_string
 
 def forbidden_param():
-    """ return count of words NOT forbidden by param"""
-    ...
+    
 
 
 def find_five():

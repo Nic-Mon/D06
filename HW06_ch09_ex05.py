@@ -10,17 +10,38 @@
 # How many words are there that use all the vowels aeiou? How about
 # aeiouy?
 #   - write functions(s) to assist you
-#   - # of words that use all aeiou: [type here]
-#   - # of words that use all aeiouy: [type here]
+#   - # of words that use all aeiou: 598
+#   - # of words that use all aeiouy: 42
 ##############################################################################
 # Imports
 
 # Body
+def uses_all(word, req_letters):
+	for letter in req_letters:
+		if letter not in word:
+			return False
+	return True
 
+def words_that_use(letters):
+	fin = open('words.txt', 'r')
+	words = fin.readlines()
+	word_list = list()
+	for word in words:
+		if uses_all(word, letters):
+			word_list.append(word)
+	return word_list
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
+    all_vowels = words_that_use('aeiou')
+    all_vowels_and_y = words_that_use('aeiouy')
+
+    print("Number of words that use all aeiou: " + str(len(all_vowels)))
+
+    print("Number of words that use all aeiouy: " + str(len(all_vowels_and_y)))
+
+
+
 
 if __name__ == '__main__':
     main()
